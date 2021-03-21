@@ -4,6 +4,7 @@ public class CabInvoiceGenerator {
     private final int COST_PER_KM = 10;
     private final int COST_PER_MINUTE = 1;
     private final double MINIMUM_FARE = 5.0;
+    public RideRepository rideRepository = new RideRepository();
 
     public double calculateFare(double distance, int time) {
         double totalFare;
@@ -32,5 +33,13 @@ public class CabInvoiceGenerator {
         double numberOfRides = rides.length;
         double averageFare = totalFare/numberOfRides;
         return averageFare;
+    }
+
+    public double getRidesDetails(String userID) {
+        return this.calculateFare(rideRepository.getRides(userID));
+    }
+
+    public void addRides(String userID, Ride[] rides) {
+        rideRepository.addRides(userID, rides);
     }
 }
