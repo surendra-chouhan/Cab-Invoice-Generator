@@ -4,6 +4,7 @@ public class CabInvoiceGenerator {
     private final int COST_PER_KM = 10;
     private final int COST_PER_MINUTE = 1;
     private final double MINIMUM_FARE = 5.0;
+
     public RideRepository rideRepository = new RideRepository();
 
     public double calculateFare(double distance, int time) {
